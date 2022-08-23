@@ -63,44 +63,12 @@ public class WebstaurantStore {
         cartItemCount = driver.findElement(By.xpath("//span[@id='cartItemCountSpan']"));
         Assertions.assertEquals("0", cartItemCount.getText());
 
+        driver.quit();
 
+   }
 
-
-
-//        for(WebElement table: searchElements) {
-//
-//            String tableResult = table.getText();
-//
-//            if	(tableResult.contains("table"))
-//
-//                System.out.println(tableResult);
-//        }
-//
-//
-//
-////		WebElement searchButton = driver.findElement(By.xpath("//button[contains(text(), \"Search\")]"));
-////
-////		searchButton.click();
-////		Thread.sleep(5000);
-//
-////		WebElement cart =  driver.findElement(By.xpath("//span[contains(text(),'Cart')]"));
-////		cart.click();
-//
-//
-//
-//
-//
-//
-//
-//        System.out.println(driver.getTitle());
-//
-//        //driver.quit();
-
-
-
-    }
-
-    public static List<String> getProductNamesAsString(List<WebElement> elementList){
+    public static List<String> getProductNamesAsString(List<WebElement> elementList)
+        {
         List<String> elementStringlist = new ArrayList<>();
         for (int i = 0; i < elementList.size(); i++){
             elementStringlist.add(elementList.get(i).getText());
@@ -108,14 +76,15 @@ public class WebstaurantStore {
         return elementStringlist;
     }
 
-    public static boolean isListContainsTheWord(List<String> elementStringList, String word){
+    public static boolean isListContainsTheWord(List<String> elementStringList, String word)
+       {
         boolean check = true;
         for (int i = 0; i < elementStringList.size(); i++) {
             if (!elementStringList.get(i).toLowerCase().contains(word.toLowerCase())){
                 check = false;
                 break;
-            }
         }
+     }
 
         return check;
     }
