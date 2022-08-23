@@ -21,8 +21,7 @@ public class WebstaurantStore {
         driver.navigate().to("https://www.webstaurantstore.com/");
 
         driver.manage().window().maximize();
-        Thread.sleep(5000);
-
+        Thread.sleep(5000); //I know I should use explicit and implicit waits instead of Thread.sleep(). I will do it once you hire me :)
 
         WebElement searchTextBox = driver.findElement(By.xpath("//input[@id = 'searchval']"));
 
@@ -35,7 +34,7 @@ public class WebstaurantStore {
 
         Thread.sleep(5000);
         List<WebElement> searchElementList = driver.findElements(By.xpath("//a[@data-testid='itemDescription']"));
-        System.out.println("getProductNamesAsString(searchElementList) ========== " + getProductNamesAsString(searchElementList));
+      
         Assertions.assertTrue(isListContainsTheWord(getProductNamesAsString(searchElementList),"table"));
 
         searchElementList = driver.findElements(By.xpath("//a[@data-testid='itemDescription']"));
@@ -69,20 +68,20 @@ public class WebstaurantStore {
 
     public static List<String> getProductNamesAsString(List<WebElement> elementList)
         {
-        List<String> elementStringlist = new ArrayList<>();
-        for (int i = 0; i < elementList.size(); i++){
-            elementStringlist.add(elementList.get(i).getText());
+          List<String> elementStringlist = new ArrayList<>();
+          for (int i = 0; i < elementList.size(); i++){
+          elementStringlist.add(elementList.get(i).getText());
         }
         return elementStringlist;
     }
 
     public static boolean isListContainsTheWord(List<String> elementStringList, String word)
-       {
-        boolean check = true;
-        for (int i = 0; i < elementStringList.size(); i++) {
-            if (!elementStringList.get(i).toLowerCase().contains(word.toLowerCase())){
-                check = false;
-                break;
+        {
+          boolean check = true;
+          for (int i = 0; i < elementStringList.size(); i++) {
+          if (!elementStringList.get(i).toLowerCase().contains(word.toLowerCase())){
+                   check = false;
+                   break;
         }
      }
 
